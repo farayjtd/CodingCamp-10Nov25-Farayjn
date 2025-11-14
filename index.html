@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galaxy Todo List</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Galaxy Background -->
+    <canvas id="stars"></canvas>
+
+    <div class="wrapper">
+      <!-- Header -->
+      <header>
+        <h1>✨ Todo List ✨</h1>
+        <p class="subtitle">Atur aktivitasmu</p>
+      </header>
+
+      <!-- Form Section -->
+      <section class="card form-card">
+        <h2>Tambah Tugas</h2>
+
+        <form id="todoForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama Tugas *</label>
+              <input
+                type="text"
+                id="taskInput"
+                placeholder="Contoh: Belajar JavaScript"
+                required
+              />
+              <span class="error" id="taskError"></span>
+            </div>
+
+            <div class="form-group">
+              <label>Tanggal *</label>
+              <input type="date" id="dateInput" required />
+              <span class="error" id="dateError"></span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary" id="submitBtn">
+              <span id="btnText">Tambah</span>
+            </button>
+
+            <button
+              type="button"
+              class="btn secondary"
+              id="cancelBtn"
+              style="display: none"
+            >
+              Batal
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Filter -->
+      <section class="card filter-card">
+        <div class="filter-grid">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari tugas..."
+            class="search"
+          />
+
+          <select id="filterSelect" class="filter">
+            <option value="newest">Tanggal Terbaru</option>
+            <option value="oldest">Tanggal Terlama</option>
+            <option value="az">Nama A-Z</option>
+            <option value="za">Nama Z-A</option>
+            <option value="completed">Sudah Selesai</option>
+            <option value="incomplete">Belum Selesai</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Table -->
+      <section class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th width="50">✔</th>
+              <th>Nama Tugas</th>
+              <th width="130">Tanggal</th>
+              <th width="120">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="todoBody"></tbody>
+        </table>
+
+        <div id="emptyState" class="empty">
+          <p>Belum ada tugas</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Delete -->
+    <div id="deleteModal" class="modal">
+      <div class="modal-content">
+        <h3>Hapus Tugas?</h3>
+        <p>Apakah Anda yakin ingin menghapus tugas ini?</p>
+
+        <div class="modal-actions">
+          <button id="confirmDelete" class="btn danger">Hapus</button>
+          <button id="cancelDelete" class="btn secondary">Batal</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
